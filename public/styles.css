@@ -13,3 +13,5 @@
 
 
 .bloom-feature video{display:block;width:100%;height:auto;max-height:650px;object-fit:cover;background:#211b1d;border-radius:2px}.bloom-feature{margin-top:3rem}.bloom-page{max-width:1100px;margin:auto}.bloom-page .inspiration-feature{align-items:center}.bloom-page img{width:100%;height:auto}
+
+.story-image.story-portrait{height:auto;aspect-ratio:1144/1375}.story-portrait img{object-position:center;}
