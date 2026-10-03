@@ -1,0 +1,32 @@
+{
+  "lucky-shuck-coaster-v01": {
+    "watertight": true,
+    "volume_mm3": 34830.31,
+    "size_mm": [
+      104.0,
+      104.0,
+      4.2
+    ],
+    "triangles": 6304
+  },
+  "six-coaster-case-v01": {
+    "watertight": true,
+    "volume_mm3": 39360.2,
+    "size_mm": [
+      110.0,
+      110.0,
+      32.0
+    ],
+    "triangles": 2048
+  },
+  "six-coaster-lid-v01": {
+    "watertight": true,
+    "volume_mm3": 26368.89,
+    "size_mm": [
+      114.8,
+      114.8,
+      10.0
+    ],
+    "triangles": 2048
+  }
+}

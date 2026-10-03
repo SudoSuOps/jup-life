@@ -1,0 +1,17 @@
+LUCKY SHUCK V01 — UNPRINTED PROTOTYPE
+Millimetres; coaster 104 × 104 × 4.2, engraving 0.6 deep.
+Print 6 coasters, 1 case and 1 lid for a set.
+Case: 110 mm OD, 106 mm ID, 32 mm height, 2 mm floor.
+Lid: 114.8 mm OD, 110.8 mm cavity, 10 mm height.
+Loose fit designed with 0.4 mm radial clearance; actual material shrinkage and fit unknown.
+The coaster is single material. The red CAD preview only highlights the recessed main lettering.
+Small tagline, white lines and halftone decoration intentionally excluded.
+Starting trial: 0.4 mm nozzle, 0.2 mm layers, 4 walls; inspect in your slicer.
+Use the material manufacturer's temperature, drying and bed recommendations.
+TPU 95A is a trial candidate, not a validated restaurant material.
+Coaster: flat underside on bed, logo up. Case: base down. Lid: flat roof on bed, opening up.
+No supports intended; confirm toolpaths, especially lid orientation.
+Print one coaster first. Inspect detail, stability, grip, wash results and case fit.
+Do not assume dishwasher safety or any environmental certification.
+Planned price: $39.95 for six plus case, pending actual costs and tests.
+
