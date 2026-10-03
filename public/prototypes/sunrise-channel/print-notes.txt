@@ -1,0 +1,44 @@
+SUNRISE CHANNEL / JUP-003 / V01 — UNPRINTED PROTOTYPE
+Original CAD artwork by JUP LIFE Studio, inspired by coastal channels.
+Units: millimetres. Diameter 104. Thickness 4.2. One connected solid.
+Recesses: 0.30, 0.55 and 0.75 mm. Minimum base: 3.45 mm.
+Flat outer support band: 4 mm. Nominal drawn stroke widths: 0.65–0.85 mm.
+STL round trip verified watertight and solid. 12,504 triangles.
+TPU 95A target. Color and transparency are unspecified; the image is a concept.
+
+TRIAL PRINT — PROCESS ASSUMPTIONS, NOT A VALIDATED MACHINE PROFILE
+Print one before making a set.
+Orientation: flat underside on bed, engraved art upward.
+Nozzle: 0.4 mm. Layer height: 0.15 mm. 4 walls.
+6 top and bottom layers; 100% infill for the first uniform-surface trial.
+These layers align with the modeled engraving steps. Keep scale at 100%.
+Start from your exact printer/material supplier's TPU 95A profile.
+Use supplier nozzle/bed temperatures, drying duration and drying temperature.
+Use the supported feed path for that filament; do not assume feeder compatibility.
+A conservative first detail pass is 20 mm/s outer/top speed, adjusting to the
+filament supplier's profile. This is a trial choice, not a universal TPU limit.
+Supports: none intended. Inspect layer-by-layer and detect thin clipped features.
+Do not iron the engraved surface. Inspect first layer, stringing and pocket floors.
+
+FIRST-PRINT REVIEW
+Measure diameter and thickness. Check a glass rests level and does not rock.
+Check sun circle, rock strata and fine strokes resolve without loose strings.
+Inspect for voids, pinholes, stringing, rough edges and local surface collapse.
+Check wet/dry grip on the intended table and whether grooves clean satisfactorily.
+Trial hand cleaning with the chosen material's documented care instructions.
+No dishwasher, heat, antimicrobial, environmental or durability claims established.
+Same dimensions as prior 104 mm coasters; test actual case/lid fit before scaling.
+Six prints plus the case belong to the planned $39.95 set; not an active offer.
+
+REFERENCES
+Prusa flexible-material guidance: https://help.prusa3d.com/article/flexible-materials_2057
+Prusa drying guidance: https://help.prusa3d.com/article/drying-filament_332086
+Supplier-specific instructions for your actual TPU spool take precedence.
+
+FILES
+sunrise-channel-jup-003-v01.stl — slice this at 100%, units mm.
+sunrise-channel-top.svg/.png — CAD layout; depth colors are explanatory.
+sunrise-channel-cad.png — geometric visualization, uniform simulated material.
+mesh-report.json — geometry checks and STL hash.
+The website's AI concept photo is not a photographed print.
+

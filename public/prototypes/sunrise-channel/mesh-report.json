@@ -1,0 +1,22 @@
+{
+  "design": "JUP-003 Sunrise Channel V01",
+  "status": "CAD prototype; unprinted",
+  "material_target": "TPU 95A",
+  "units": "mm",
+  "diameter_mm": 104,
+  "thickness_mm": 4.2,
+  "engraving_depths_mm": [
+    0.3,
+    0.55,
+    0.75
+  ],
+  "minimum_base_mm": 3.45,
+  "nominal_minimum_stroke_mm": 0.65,
+  "outer_flat_band_mm": 4,
+  "watertight_export": true,
+  "solid_export": true,
+  "connected_solids": 1,
+  "triangles": 12504,
+  "volume_mm3": 34493.5,
+  "sha256": "91e5ed0ebdc6ad5d47db734d741069a4f8058c57678a0f398637d70970b0c16e"
+}

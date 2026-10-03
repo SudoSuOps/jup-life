@@ -2,7 +2,7 @@
 
 October 3, 2026. Lucky Shuck replaces the standalone pelican series following the owner's must-build request. Pelicans remain a possible future addition.
 
-One CAD logo coaster and case/lid are built. The other 99 entries are design briefs, not printable models or licensed photo reproductions.
+Two coaster CAD prototypes are built: Lucky Shuck logo and Sunrise Channel. The other 98 entries are design briefs. Case/lid CAD is also built. All are unprinted; photo reproduction rights remain unverified.
 
 ## 1. Coral Cove
 
@@ -12,7 +12,7 @@ Rights: Reference only; reproduction and merchandise rights not verified.
 
 - **JUP-001 — Rock shelf**: Design brief; CAD not built.
 - **JUP-002 — Tide pool**: Design brief; CAD not built.
-- **JUP-003 — Sunrise channel**: Design brief; CAD not built.
+- **JUP-003 — Sunrise channel**: [CAD prototype and print pack](https://juplifestudio.com/collection/sunrise-channel); unprinted.
 - **JUP-004 — Wave seam**: Design brief; CAD not built.
 - **JUP-005 — Rock arch**: Design brief; CAD not built.
 - **JUP-006 — Foam edge**: Design brief; CAD not built.
@@ -179,4 +179,5 @@ Rights: User supplied logo; commercial collaboration unconfirmed.
 Owner's target: $39.95 for six coasters plus case. Shipping, tax, customization scope and actual costs remain to be confirmed. No checkout offer yet. Position as reusable custom logo coasters in development. Do not advertise dishwasher-safe, antibacterial, recycled, biodegradable or eco-friendly without evidence for the chosen material and manufacturing process.
 
 Record material supplier/SKU, batch, slicer, machine, nozzle, layers, time and actual mass. Test grip dry/wet on bar surfaces, water pooling, staining, cleaning using the restaurant's procedure, repeated washing, abrasion, hot/cold glasses, stacking and lid fit. Record before/after photos and dimensional changes. Decide acceptable results before testing and publish care instructions from the results.
+
 
