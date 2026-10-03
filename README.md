@@ -2,6 +2,8 @@
 
 A coastal storefront for **juplifestudio.com**, with a private media studio and Stripe-hosted checkout. The founder story celebrates a mom of four, a wife to one, and the family’s anniversary: **Est. 10.23.99**. That date describes their roots, not the business incorporation date.
 
+[View the desktop design preview](docs/site-preview.webp) · [Verification results](docs/VERIFICATION.md)
+
 ## Run
 
 Node 22+ and Python 3 (for one real SQLite test). No application dependencies or build-time downloads.
