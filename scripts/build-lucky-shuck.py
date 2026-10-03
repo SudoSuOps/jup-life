@@ -18,6 +18,7 @@ n, labels, stats, _ = cv2.connectedComponentsWithStats(mask)
 clean = np.zeros_like(mask)
 for i in range(1,n):
     if stats[i,cv2.CC_STAT_AREA] > 1500: clean[labels == i] = 255
+clean=cv2.morphologyEx(clean,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5)))
 contours, hierarchy = cv2.findContours(clean,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 polys=[]
 scale=84/im.shape[1]
@@ -31,7 +32,7 @@ for i,c in enumerate(contours):
     while j != -1:
         if len(contours[j])>=3: holes.append(ring(contours[j]))
         j=hierarchy[0,j,0]
-    p=Polygon(ring(c),holes).buffer(0).simplify(.06,preserve_topology=True)
+    p=Polygon(ring(c),holes).buffer(0).simplify(.15,preserve_topology=True)
     if not p.is_empty: polys.append(p)
 logo=unary_union(polys)
 disk=Point(0,0).buffer(52,quad_segs=128)
@@ -58,6 +59,8 @@ for name,m in [('lucky-shuck-coaster-v01',coaster),('six-coaster-case-v01',case)
     assert m.is_watertight and m.is_volume, name
     assert m.volume>0
     m.export(out/(name+'.stl'))
+    reloaded=trimesh.load(out/(name+'.stl'))
+    assert reloaded.is_watertight and reloaded.is_volume, name+' STL round trip'
     report[name]={'watertight':bool(m.is_watertight),'volume_mm3':round(float(m.volume),2),'size_mm':np.round(m.extents,3).tolist(),'triangles':len(m.faces)}
 (out/'mesh-report.json').write_text(json.dumps(report,indent=2)+'\n')
 # Orthographic SVG uses the actual toolpath outline, not an AI visualization.
