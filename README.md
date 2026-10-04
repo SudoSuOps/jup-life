@@ -21,6 +21,8 @@ The lightweight preview intentionally has no production secrets or database. For
 
 Connect **SudoSuOps/jup-life**, branch **main**. Framework preset **None**, build command **npm run build**, output directory **dist**, root directory repository root. Set Node version to **22**. Cloudflare discovers the root `functions/` directory alongside the build output; this app uses Pages Functions, not a separately deployed Worker. Add **juplifestudio.com** as the custom domain. The site can be deployed in collection-preview mode before any commerce setup.
 
+Production deploys are triggered automatically by pushes to `main`.
+
 Follow [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for D1, R2, admin credentials, Stripe, and the launch check. Do not turn on checkout until real products, approved policies and tested payments are ready.
 
 ## What’s included
