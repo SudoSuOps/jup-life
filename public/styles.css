@@ -32,3 +32,17 @@
 .point-of-view .pov-quote figcaption{margin-top:18px}
 @media(max-width:1100px){.point-of-view{grid-template-columns:1fr}.point-of-view .pov-proverb{grid-template-columns:repeat(2,minmax(0,200px)) minmax(0,1fr);width:100%}}
 @media(max-width:700px){.point-of-view{padding-top:40px;padding-bottom:40px;gap:24px}.point-of-view h2{font-size:2.5rem;margin:12px 0}.point-of-view .pov-proverb{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.point-of-view .pov-proverb img{height:auto;aspect-ratio:1170/1422;object-fit:cover}.point-of-view .pov-quote{grid-column:1/-1}.point-of-view .pov-proverb blockquote{font-size:1.5rem}.point-of-view .pov-proverb figcaption span{letter-spacing:.04em}}
+
+/* Jup Signature by Dee: coastal gift-set feature. */
+.signature-feature{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;background:#efe9db;padding-top:64px;padding-bottom:64px;scroll-margin-top:28px}
+.signature-image img{display:block;width:100%;height:auto;border-radius:6px}
+.signature-image figcaption{margin-top:10px;font-size:.75rem;color:#456570}
+.signature-copy h2{font-size:clamp(2.8rem,4.8vw,4.5rem);margin:20px 0 24px}
+.signature-copy>p:not(.eyebrow){margin-top:18px;max-width:440px;color:#456570}
+.signature-copy .signature-set{font-size:.875rem;color:#06475b}
+.signature-copy .signature-price{font:2.5rem/1.2 var(--serif);color:#06475b;margin:22px 0}
+.signature-price span{font: .875rem/1.4 Arial,Helvetica,sans-serif;margin-left:8px;color:#456570}
+.signature-copy .signature-note{font-size:.8rem;line-height:1.6}
+.signature-copy .signature-tagline{font:italic 1.25rem/1.5 var(--serif);color:#06475b;margin-top:25px}
+@media(max-width:1100px){.desktop-nav{gap:18px}.signature-feature{gap:32px}.signature-copy h2{font-size:3rem}}
+@media(max-width:700px){.signature-feature{grid-template-columns:1fr;gap:26px;padding-top:40px;padding-bottom:40px}.signature-copy h2{font-size:2.8rem}.signature-copy .signature-price{font-size:2.25rem}}
