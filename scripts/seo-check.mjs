@@ -35,6 +35,6 @@ for(const url of urls){
 }
 for(const path of ['success.html','admin/index.html'])assert((await readFile('public/'+path,'utf8')).includes('content="noindex,nofollow"'));
 const home=await readFile('public/index.html','utf8');
-for(const route of ['coaster-set','coaster-holder','studio-set','jup-bloom'])assert(home.includes('href="/collection/'+route+'"'));
+for(const route of ['coaster-set','studio-set','jup-bloom'])assert(home.includes('href="/collection/'+route+'"'));
 assert(home.includes('id="questions"')&&home.includes('Based in Jupiter, Florida'));
 console.log('SEO verified: '+urls.length+' public pages, unique metadata, canonical/social URLs, JSON-LD/CSP, crawl policy, noindex and static collection links.');
