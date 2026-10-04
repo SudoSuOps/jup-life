@@ -1,6 +1,6 @@
 const $=s=>document.querySelector(s);const fallback=[{id:'hibiscus',name:'The Hibiscus Set',subtitle:'Six blooms + one case',description:'Six TPU 95A hibiscus coasters and one matching case. $29 for the set.',image:'/assets/hibiscus-tpu95-clear-v2.webp',amount:2900,currency:'USD'},{id:'coaster-set',name:'The JUP LIFE Coasters',subtitle:'Six coastal moments',description:'Six round coasters with two chairs and one wave.',image:'/assets/coasters.webp'},{id:'coaster-holder',name:'The Open-Air Holder',subtitle:'Everything in its place',description:'An open-sided home for the whole stack of six.',image:'/assets/coasters.webp'},{id:'studio-set',name:'The Happy Place Set',subtitle:'The whole little escape',description:'Six coastal coasters, paired with their open-air holder.',image:'/assets/detail.webp'}];let products=fallback,cart=[],requestId=null,media=[];
 try{const saved=JSON.parse(localStorage.getItem('jup-bag')||'[]');if(Array.isArray(saved))cart=saved.filter(x=>fallback.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0&&x.quantity<=10).filter((x,i,a)=>a.findIndex(y=>y.id===x.id)===i)}catch{}
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const money=p=>p.amount!=null?new Intl.NumberFormat('en-US',{style:'currency',currency:p.currency}).format(p.amount/100):'Collection preview';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));const money=p=>p.amount!=null?new Intl.NumberFormat('en-US',{style:'currency',currency:p.currency}).format(p.amount/100):'Collection preview';
 async function api(path,options){const r=await fetch(path,options);const b=await r.json();if(!r.ok)throw Error(b.error||'Please try again.');return b}
 function persist(){try{localStorage.setItem('jup-bag',JSON.stringify(cart))}catch{}requestId=null;renderCart()}
 function toast(text){const t=$('#toast');if(t){t.textContent=text;t.classList.add('visible');setTimeout(()=>t.classList.remove('visible'),2500)}}
@@ -14,5 +14,4 @@ renderCart();load();
 
 document.addEventListener('jup-order-paid',()=>{cart=[];persist()});if($('#year'))$('#year').textContent=new Date().getFullYear();
 
-
-
+import('/contact.js?v=20261004-contact').catch(error=>console.error('Contact form failed to load',error));
