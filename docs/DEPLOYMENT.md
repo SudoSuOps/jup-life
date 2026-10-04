@@ -76,3 +76,7 @@ Customer and shipping details live in Stripe. Fulfill the order using Stripe’s
 ## Maintenance
 
 Back up D1 and retain R2 originals according to the final privacy policy. Review Cloudflare and Stripe service usage in their dashboards. Keep secrets out of GitHub. The app’s R2 bucket remains private; its `/media/:id` function controls draft access. Unpublishing removes a media item from the feed immediately, but an already public cached media response may remain accessible for up to one hour.
+
+## Proof of Coin OG six-pack
+
+The public set price is $39 USD. Email ordering is available on `/collection/proof-of-coin`. For a future Stripe checkout, configure `STRIPE_PRICE_PROOF_OF_COIN` to a one-time USD 3900-cent price in the same mode as the other IDs. The server rejects a different price. Existing readiness and policy flags remain in effect. The page includes the authorized Lucky inspiration story; product images remain labeled as design previews.
