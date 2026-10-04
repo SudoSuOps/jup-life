@@ -15,3 +15,4 @@ $('#refresh-media').addEventListener('click',loadMedia);$('#refresh-orders').add
 
 
 $('#quote-form').addEventListener('submit',async e=>{e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;try{await api('quotes',send('POST',{text:$('#quote-text').value}));$('#quote-text').value='';await loadMedia();message('Quote saved as a private draft. Publish it below when ready.')}catch(e){message(e.message,true)}finally{b.disabled=false}});
+
