@@ -13,7 +13,8 @@ for(const url of urls){
  const route=new URL(url).pathname;
  assert.equal(new URL(url).origin,base);
  assert(!/admin|success|api/.test(route));
- const html=await readFile('public'+(route==='/'?'/index.html':route+'.html'),'utf8');
+ const file=route==='/'?'/index.html':route.endsWith('/')?route+'index.html':route+'.html';
+ const html=await readFile('public'+file,'utf8');
  const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
  const desc=html.match(/<meta name="description" content="([^"]*)">/)?.[1];
  assert(title&&desc&&desc.length<180,'Missing or oversized metadata '+url);
