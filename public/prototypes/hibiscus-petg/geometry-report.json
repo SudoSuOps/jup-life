@@ -1,0 +1,86 @@
+{
+  "prototype": "Hibiscus PETG V02; unprinted",
+  "coaster_diameter_mm": 104,
+  "glass_support_plane_mm": 4.2,
+  "base_plate_mm": 3.3,
+  "maximum_flower_relief_mm": 0.8,
+  "coaster_max_height_mm": 5.4,
+  "rim_above_support_plane_mm": 1.2,
+  "glass_lands": {
+    "count": 3,
+    "radius_from_center_mm": 18,
+    "nominal_diameter_mm": 3.4,
+    "height_mm": 4.2
+  },
+  "case": {
+    "outer_diameter_mm": 110,
+    "inner_diameter_mm": 105,
+    "height_mm": 37.6,
+    "floor_mm": 2.4,
+    "six_coaster_stack_mm": 32.4,
+    "cavity_height_mm": 35.2,
+    "front_opening_width_mm": 48
+  },
+  "lid": {
+    "outer_diameter_mm": 115,
+    "inner_diameter_mm": 111,
+    "height_mm": 10,
+    "radial_clearance_mm": 0.5
+  },
+  "material_target": "orange PETG; supplier profile unspecified",
+  "meshes": {
+    "HIBISCUS-PETG-V02-COASTER": {
+      "triangles": 1054080,
+      "watertight": true,
+      "solid": true,
+      "connected_solids": 1,
+      "extents_mm": [
+        104.0,
+        104.0,
+        5.4
+      ],
+      "volume_cm3": 31.2176,
+      "sha256": "3f0b3355361d8be8676a2c3d406110a70c175a575b20309c958a88868dad2c91"
+    },
+    "HIBISCUS-PETG-V02-CASE": {
+      "triangles": 5116,
+      "watertight": true,
+      "solid": true,
+      "connected_solids": 1,
+      "extents_mm": [
+        110.0,
+        110.0,
+        37.6
+      ],
+      "volume_cm3": 48.8032,
+      "sha256": "67847abcd693e06cf47849bfb2b47a9adefff038892e1999a3b1bb42913897b6"
+    },
+    "HIBISCUS-PETG-V02-LID": {
+      "triangles": 5040,
+      "watertight": true,
+      "solid": true,
+      "connected_solids": 1,
+      "extents_mm": [
+        115.0,
+        115.0,
+        10.0
+      ],
+      "volume_cm3": 30.1892,
+      "sha256": "aa2e0c568aeb1830e238ad79abedc10111ac60224da4cd56318754c2a2a89a89"
+    },
+    "HIBISCUS-PETG-V02-FIT-RING": {
+      "triangles": 2880,
+      "watertight": true,
+      "solid": true,
+      "connected_solids": 1,
+      "extents_mm": [
+        110.0,
+        110.0,
+        5.0
+      ],
+      "volume_cm3": 4.2213,
+      "sha256": "d0a963a5fe5f4b17cddc61efef47c90e5143076f09657b82e82b2b3d366bfb25"
+    }
+  },
+  "minimum_modeled_coaster_thickness_mm": 2.65
+}
