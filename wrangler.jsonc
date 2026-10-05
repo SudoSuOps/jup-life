@@ -31,7 +31,7 @@
         }
       ],
       "vars": {
-        "SITE_URL": "",
+        "SITE_URL": "https://stripe-preview.jup-life.pages.dev",
         "STORE_READY": "false",
         "POLICIES_APPROVED": "false",
         "SHIPPING_COUNTRIES": "US",
