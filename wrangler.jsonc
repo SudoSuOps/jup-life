@@ -2,12 +2,46 @@
   "name": "jup-life",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-03",
-  // Production D1 order database; bindings are managed by this file.
-  "d1_databases": [{"binding":"DB","database_name":"jup-life","database_id":"15d6189b-040d-4bdd-b0e2-c920aebcd4a1","migrations_dir":"migrations"}],
-  // "r2_buckets": [{"binding":"MEDIA","bucket_name":"jup-life-media"}],
-  "vars": {"SITE_URL":"https://juplifestudio.com","STORE_READY":"false","POLICIES_APPROVED":"false","SHIPPING_COUNTRIES":"US",
-    "STRIPE_PRICE_HIBISCUS":"price_1UNEc8HYwaTbul7M82ObSGjw",
-    "STRIPE_PRICE_PROOF_OF_COIN":"price_1UNEcEHYwaTbul7MjLKSUHAa",
-    "STRIPE_PRICE_SIGNATURE":"price_1UNEcPHYwaTbul7MgAc0qK6k",
-    "STRIPE_PRICE_SWEET_COAST":"price_1UNEcVHYwaTbul7MfDEZUDln"}
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jup-life",
+      "database_id": "15d6189b-040d-4bdd-b0e2-c920aebcd4a1",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "SITE_URL": "https://juplifestudio.com",
+    "STORE_READY": "false",
+    "POLICIES_APPROVED": "false",
+    "SHIPPING_COUNTRIES": "US",
+    "STRIPE_PRICE_HIBISCUS": "price_1UNEc8HYwaTbul7M82ObSGjw",
+    "STRIPE_PRICE_PROOF_OF_COIN": "price_1UNEcEHYwaTbul7MjLKSUHAa",
+    "STRIPE_PRICE_SIGNATURE": "price_1UNEcPHYwaTbul7MgAc0qK6k",
+    "STRIPE_PRICE_SWEET_COAST": "price_1UNEcVHYwaTbul7MfDEZUDln"
+  },
+  "env": {
+    "preview": {
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "jup-life-preview",
+          "database_id": "4d04d78f-25d4-42bb-ae54-f4affe4b3656",
+          "migrations_dir": "migrations"
+        }
+      ],
+      "vars": {
+        "SITE_URL": "",
+        "STORE_READY": "false",
+        "POLICIES_APPROVED": "false",
+        "SHIPPING_COUNTRIES": "US",
+        "STRIPE_AUTOMATIC_TAX": "false",
+        "STRIPE_SHIPPING_RATE": "shr_1UNGHwHjYTuBiZdMuFti7qIu",
+        "STRIPE_PRICE_HIBISCUS": "price_1UNEQOHjYTuBiZdMICBneJUo",
+        "STRIPE_PRICE_PROOF_OF_COIN": "price_1UNEQVHjYTuBiZdMuWYCzD5q",
+        "STRIPE_PRICE_SIGNATURE": "price_1UNEQaHjYTuBiZdM9KEhr80U",
+        "STRIPE_PRICE_SWEET_COAST": "price_1UNEQgHjYTuBiZdMvWlrzUNi"
+      }
+    }
+  }
 }
