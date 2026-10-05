@@ -37,15 +37,15 @@
 .signature-feature{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;background:#efe9db;padding-top:64px;padding-bottom:64px;scroll-margin-top:28px}
 .signature-image img{display:block;width:100%;height:auto;border-radius:6px}
 .signature-image figcaption{margin-top:10px;font-size:.75rem;color:#456570}
-.signature-copy h2{font-size:clamp(2.8rem,4.8vw,4.5rem);margin:20px 0 24px}
+.signature-copy :is(h1,h2){font-size:clamp(2.8rem,4.8vw,4.5rem);margin:20px 0 24px}
 .signature-copy>p:not(.eyebrow){margin-top:18px;max-width:440px;color:#456570}
 .signature-copy .signature-set{font-size:.875rem;color:#06475b}
 .signature-copy .signature-price{font:2.5rem/1.2 var(--serif);color:#06475b;margin:22px 0}
 .signature-price span{font: .875rem/1.4 Arial,Helvetica,sans-serif;margin-left:8px;color:#456570}
 .signature-copy .signature-note{font-size:.8rem;line-height:1.6}
 .signature-copy .signature-tagline{font:italic 1.25rem/1.5 var(--serif);color:#06475b;margin-top:25px}
-@media(max-width:1100px){.desktop-nav{gap:18px}.signature-feature{gap:32px}.signature-copy h2{font-size:3rem}}
-@media(max-width:700px){.signature-feature{grid-template-columns:1fr;gap:26px;padding-top:40px;padding-bottom:40px}.signature-copy h2{font-size:2.8rem}.signature-copy .signature-price{font-size:2.25rem}}
+@media(max-width:1100px){.desktop-nav{gap:18px}.signature-feature{gap:32px}.signature-copy :is(h1,h2){font-size:3rem}}
+@media(max-width:700px){.signature-feature{grid-template-columns:1fr;gap:26px;padding-top:40px;padding-bottom:40px}.signature-copy :is(h1,h2){font-size:2.8rem}.signature-copy .signature-price{font-size:2.25rem}}
 
 .studio-feature{background:#faf7ef;padding-top:64px;padding-bottom:64px;scroll-margin-top:28px}.studio-heading{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end;margin-bottom:32px}.studio-heading h2{font-size:clamp(2.4rem,4vw,4.5rem);margin:18px 0 0}.studio-intro p{color:#456570;margin:14px 0;max-width:520px}.studio-intro .studio-origin{font-size:.8rem;letter-spacing:.08em;color:#06475b;font-weight:700}.studio-scene{margin:0}.studio-scene picture,.studio-scene img{display:block;width:100%;height:auto}.studio-scene figcaption{font-size:.8rem;color:#456570;margin-top:12px}@media(max-width:700px){.studio-feature{padding-top:40px;padding-bottom:40px}.studio-heading{grid-template-columns:1fr;gap:16px;margin-bottom:24px}}
 

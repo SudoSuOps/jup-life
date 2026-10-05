@@ -36,11 +36,15 @@ Upload media, add titles and image descriptions, choose the destination, and che
 
 ## 4. Stripe in test mode first
 
-Create one-time Stripe prices for the three products and a shipping rate. Add these secrets/values in Cloudflare:
+Create one-time Stripe prices in the separate JupLifeStudio account and a shipping rate. Use an isolated sandbox for development. Connect the JupLifeStudio account to ChatGPT separately; its Cloudflare key does not change ChatGPT’s account access. Add these secrets/values in Cloudflare:
 
 | Name | Value |
 | --- | --- |
-| `STRIPE_SECRET_KEY` | Server secret key, test mode first |
+| `STRIPE_SECRET_KEY` | Server restricted key, sandbox first |
+| `STRIPE_PRICE_SIGNATURE` | `price_…` for the $49 USD sunflower pot set |
+| `STRIPE_PRICE_SWEET_COAST` | `price_…` for the $59 USD coastal jar set |
+| `STRIPE_PRICE_HIBISCUS` | `price_…` for the $29 USD hibiscus set |
+| `STRIPE_PRICE_PROOF_OF_COIN` | `price_…` for the $39 USD Bitcoin set |
 | `STRIPE_PRICE_COASTERS` | `price_…` for six coasters |
 | `STRIPE_PRICE_HOLDER` | `price_…` for the holder |
 | `STRIPE_PRICE_STUDIO_SET` | `price_…` for six coasters + holder |
@@ -80,3 +84,5 @@ Back up D1 and retain R2 originals according to the final privacy policy. Review
 ## Proof of Coin OG six-pack
 
 The public set price is $39 USD. Email ordering is available on `/collection/proof-of-coin`. For a future Stripe checkout, configure `STRIPE_PRICE_PROOF_OF_COIN` to a one-time USD 3900-cent price in the same mode as the other IDs. The server rejects a different price. Existing readiness and policy flags remain in effect. The page includes the authorized Lucky inspiration story; product images remain labeled as design previews.
+
+The private studio now lists configuration checks and price bindings for every catalog piece. Configured means a value exists; a sandbox purchase still verifies it. Fixed advertised prices are checked against Stripe before checkout.
