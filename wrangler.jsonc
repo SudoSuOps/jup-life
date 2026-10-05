@@ -32,15 +32,16 @@
       ],
       "vars": {
         "SITE_URL": "https://stripe-preview.jup-life.pages.dev",
-        "STORE_READY": "false",
-        "POLICIES_APPROVED": "false",
+        "STORE_READY": "true",
+        "POLICIES_APPROVED": "true",
         "SHIPPING_COUNTRIES": "US",
         "STRIPE_AUTOMATIC_TAX": "false",
         "STRIPE_SHIPPING_RATE": "shr_1UNGHwHjYTuBiZdMuFti7qIu",
         "STRIPE_PRICE_HIBISCUS": "price_1UNEQOHjYTuBiZdMICBneJUo",
         "STRIPE_PRICE_PROOF_OF_COIN": "price_1UNEQVHjYTuBiZdMuWYCzD5q",
         "STRIPE_PRICE_SIGNATURE": "price_1UNEQaHjYTuBiZdM9KEhr80U",
-        "STRIPE_PRICE_SWEET_COAST": "price_1UNEQgHjYTuBiZdMvWlrzUNi"
+        "STRIPE_PRICE_SWEET_COAST": "price_1UNEQgHjYTuBiZdMvWlrzUNi",
+        "STRIPE_SANDBOX_ONLY": "true"
       }
     }
   }
