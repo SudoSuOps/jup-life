@@ -36,7 +36,7 @@ Upload media, add titles and image descriptions, choose the destination, and che
 
 ## 4. Stripe in test mode first
 
-Create one-time Stripe prices in the separate JupLifeStudio account and a shipping rate. Use an isolated sandbox for development. Connect the JupLifeStudio account to ChatGPT separately; its Cloudflare key does not change ChatGPT’s account access. Add these secrets/values in Cloudflare:
+Production uses the existing BullPrint Lab account (`acct_1Sj8NnHYwaTbul7M`) under the same LLC. The four approved live product prices are checked into `wrangler.jsonc`; these IDs are public configuration, not secrets. Keep the live secret key encrypted in Cloudflare as `STRIPE_SECRET_KEY`. Use an isolated sandbox for development, with its own key, price IDs, shipping rate and webhook secret. Override all four checked-in live price IDs in preview/local environments before testing; never combine sandbox keys with live IDs. Add these secrets/values in Cloudflare:
 
 | Name | Value |
 | --- | --- |
@@ -86,3 +86,16 @@ Back up D1 and retain R2 originals according to the final privacy policy. Review
 The public set price is $39 USD. Email ordering is available on `/collection/proof-of-coin`. For a future Stripe checkout, configure `STRIPE_PRICE_PROOF_OF_COIN` to a one-time USD 3900-cent price in the same mode as the other IDs. The server rejects a different price. Existing readiness and policy flags remain in effect. The page includes the authorized Lucky inspiration story; product images remain labeled as design previews.
 
 The private studio now lists configuration checks and price bindings for every catalog piece. Configured means a value exists; a sandbox purchase still verifies it. Fixed advertised prices are checked against Stripe before checkout.
+
+## Approved production catalog
+
+| Cloudflare variable | Live BullPrint Lab price | USD |
+| --- | --- | --- |
+| `STRIPE_PRICE_HIBISCUS` | `price_1UNEc8HYwaTbul7M82ObSGjw` | $29 |
+| `STRIPE_PRICE_PROOF_OF_COIN` | `price_1UNEcEHYwaTbul7MjLKSUHAa` | $39 |
+| `STRIPE_PRICE_SIGNATURE` | `price_1UNEcPHYwaTbul7MgAc0qK6k` | $49 |
+| `STRIPE_PRICE_SWEET_COAST` | `price_1UNEcVHYwaTbul7MfDEZUDln` | $59 |
+
+Prices are exclusive of tax. These are shipped physical products. BullPrint Lab's existing default digital tax category must not be used for them: confirm and assign appropriate physical-product tax codes individually, preserving the account default for existing products. At setup review, Stripe Tax had no registrations. Resolve registration obligations and configure applicable registrations before enabling automatic tax; Stripe Tax calculation does not itself establish registration or filing/remittance.
+
+Production remains closed (`STORE_READY=false`, `POLICIES_APPROVED=false`). Before launch, verify the encrypted key belongs to BullPrint Lab, configure the shipping rate and webhook signing secret, bind/migrate D1, approve final policies, and complete sandbox checkout testing. An existing live API key alone does not establish checkout readiness.

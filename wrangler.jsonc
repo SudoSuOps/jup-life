@@ -5,5 +5,9 @@
   // After creating D1, replace database_id and enable these bindings, OR bind in the Pages dashboard.
   // "d1_databases": [{"binding":"DB","database_name":"jup-life","database_id":"YOUR_REAL_D1_ID","migrations_dir":"migrations"}],
   // "r2_buckets": [{"binding":"MEDIA","bucket_name":"jup-life-media"}],
-  "vars": {"SITE_URL":"https://juplifestudio.com","STORE_READY":"false","POLICIES_APPROVED":"false","SHIPPING_COUNTRIES":"US"}
+  "vars": {"SITE_URL":"https://juplifestudio.com","STORE_READY":"false","POLICIES_APPROVED":"false","SHIPPING_COUNTRIES":"US",
+    "STRIPE_PRICE_HIBISCUS":"price_1UNEc8HYwaTbul7M82ObSGjw",
+    "STRIPE_PRICE_PROOF_OF_COIN":"price_1UNEcEHYwaTbul7MjLKSUHAa",
+    "STRIPE_PRICE_SIGNATURE":"price_1UNEcPHYwaTbul7MgAc0qK6k",
+    "STRIPE_PRICE_SWEET_COAST":"price_1UNEcVHYwaTbul7MfDEZUDln"}
 }
