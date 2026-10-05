@@ -2,8 +2,8 @@
   "name": "jup-life",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-03",
-  // After creating D1, replace database_id and enable these bindings, OR bind in the Pages dashboard.
-  // "d1_databases": [{"binding":"DB","database_name":"jup-life","database_id":"YOUR_REAL_D1_ID","migrations_dir":"migrations"}],
+  // Production D1 order database; bindings are managed by this file.
+  "d1_databases": [{"binding":"DB","database_name":"jup-life","database_id":"15d6189b-040d-4bdd-b0e2-c920aebcd4a1","migrations_dir":"migrations"}],
   // "r2_buckets": [{"binding":"MEDIA","bucket_name":"jup-life-media"}],
   "vars": {"SITE_URL":"https://juplifestudio.com","STORE_READY":"false","POLICIES_APPROVED":"false","SHIPPING_COUNTRIES":"US",
     "STRIPE_PRICE_HIBISCUS":"price_1UNEc8HYwaTbul7M82ObSGjw",
