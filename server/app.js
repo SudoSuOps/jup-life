@@ -1,5 +1,6 @@
 const encoder=new TextEncoder();
 export const PRODUCTS=[
+ {id:'one-more-chapter',name:'One More Chapter',subtitle:'A home for your Proof of Read',description:'One sand-colored TPU 95A display cradle for your driftwood reader. $9 each; reader sold separately.',image:'/assets/one-more-chapter.webp',amount:900,currency:'USD',priceEnv:'STRIPE_PRICE_ONE_MORE_CHAPTER'},
  {id:'jup-signature',name:'A Little Pot of Sunshine',subtitle:'Jup Signature by Dee',description:'Six golden TPU 95A sunflower coasters with a clear coastal display pot.',image:'/assets/jup-signature-by-dee.webp',amount:4900,currency:'USD',priceEnv:'STRIPE_PRICE_SIGNATURE'},
  {id:'sweet-coast-jar',name:'The Sweet Coast Jar',subtitle:'A little candy-shop joy',description:'Six assorted TPU 95A coasters and a clear bakery-style coastal display jar.',image:'/assets/sweet-coast-jar.webp',amount:5900,currency:'USD',priceEnv:'STRIPE_PRICE_SWEET_COAST'},
  {id:'proof-of-coin',name:'Proof of Coin',subtitle:'The 256 Collection / OG six-pack',description:'Six orange-and-charcoal Bitcoin block coasters and one vault holder. Inspired by Lucky. $39 for the set.',image:'/assets/proof-of-coin-og.webp',amount:3900,currency:'USD',priceEnv:'STRIPE_PRICE_PROOF_OF_COIN'},
