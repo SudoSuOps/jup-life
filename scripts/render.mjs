@@ -131,6 +131,8 @@ for(const file of files.filter(f=>f.endsWith('.html'))){
     html=html.replace(/<div class="sticky-cta"[\s\S]*?<\/div>/,'');
     if(rel!=='restaurants.html')html=html.replace(/<\/body>/,sticky(home)+'</body>');
     if(!/\/site\.js/.test(html))html=html.replace('</head>','<script src="/site.js" defer></script></head>');
+    html=html.replace(/<link rel="preload" as="font"[^>]*>/g,'');
+    html=html.replace(/(<link rel="stylesheet")/,'<link rel="preload" as="font" type="font/woff2" href="/assets/dm-serif.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/assets/montserrat-400.woff2" crossorigin>$1');
   }
 
   // Cloudflare rewrites addresses into "[email protected]"; keep ours readable.
