@@ -68,6 +68,9 @@ const files=await walk('public');
 const stale=[];
 async function put(file,next){const prev=await readFile(file,'utf8').catch(()=>null);if(prev!==next){if(check)stale.push(file);else await writeFile(file,next)}}
 
+// The server imports a generated module: older Wrangler bundlers (used by Cloudflare Pages) can't parse JSON import attributes.
+await put('server/products.generated.js','// Generated from data/products.json by scripts/render.mjs. Do not edit.\nexport default '+JSON.stringify({products},null,1)+';\n');
+
 // Public catalog: no Stripe variable names.
 const pub=products.map(({priceEnv,home,...rest})=>rest);
 await put('public/products.json',JSON.stringify({products:pub},null,1)+'\n');

@@ -1,4 +1,4 @@
-import productData from '../data/products.json' with {type:'json'};
+import productData from './products.generated.js';
 const encoder=new TextEncoder();
 // Products come from data/products.json (single source of truth for name, price and Stripe price variable).
 export const PRODUCTS=productData.products.filter(p=>p.priceEnv).map(p=>({id:p.id,name:p.name,subtitle:p.tagline,description:p.description,image:p.image,...(p.price!=null?{amount:p.price,currency:'USD'}:{}),priceEnv:p.priceEnv}));
