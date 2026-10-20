@@ -1,14 +1,7 @@
+import productData from '../data/products.json' with {type:'json'};
 const encoder=new TextEncoder();
-export const PRODUCTS=[
- {id:'one-more-chapter',name:'One More Chapter',subtitle:'A home for your Proof of Read',description:'One sand-colored TPU 95A display cradle for your driftwood reader. $9 each; reader sold separately.',image:'/assets/one-more-chapter.webp',amount:900,currency:'USD',priceEnv:'STRIPE_PRICE_ONE_MORE_CHAPTER'},
- {id:'jup-signature',name:'A Little Pot of Sunshine',subtitle:'Jup Signature by Dee',description:'Six golden TPU 95A sunflower coasters with a clear coastal display pot.',image:'/assets/jup-signature-by-dee.webp',amount:4900,currency:'USD',priceEnv:'STRIPE_PRICE_SIGNATURE'},
- {id:'sweet-coast-jar',name:'The Sweet Coast Jar',subtitle:'A little candy-shop joy',description:'Six assorted TPU 95A coasters and a clear bakery-style coastal display jar.',image:'/assets/sweet-coast-jar.webp',amount:5900,currency:'USD',priceEnv:'STRIPE_PRICE_SWEET_COAST'},
- {id:'proof-of-coin',name:'Proof of Coin',subtitle:'The 256 Collection / OG six-pack',description:'Six orange-and-charcoal Bitcoin block coasters and one vault holder. Inspired by Lucky. $39 for the set.',image:'/assets/proof-of-coin-og.webp',amount:3900,currency:'USD',priceEnv:'STRIPE_PRICE_PROOF_OF_COIN'},
- {id:'hibiscus',name:'The Hibiscus Set',subtitle:'Six blooms + one case',description:'Six TPU 95A hibiscus coasters and one matching case. $29 for the set.',image:'/assets/hibiscus-tpu95-clear-v2.webp',amount:2900,currency:'USD',priceEnv:'STRIPE_PRICE_HIBISCUS'},
- {id:'coaster-set',name:'The JUP LIFE Coasters',subtitle:'Six coastal moments',description:'Six round coasters with the spirit of two chairs and one wave.',image:'/assets/coasters.webp',priceEnv:'STRIPE_PRICE_COASTERS'},
- {id:'coaster-holder',name:'The Open-Air Holder',subtitle:'Everything in its place',description:'An open-sided home for six JUP LIFE coasters, with easy access to the whole stack.',image:'/assets/coasters.webp',priceEnv:'STRIPE_PRICE_HOLDER'},
- {id:'studio-set',name:'The Happy Place Set',subtitle:'The whole little escape',description:'Six JUP LIFE coasters, paired with their open-air holder.',image:'/assets/detail.webp',priceEnv:'STRIPE_PRICE_STUDIO_SET'}
-];
+// Products come from data/products.json (single source of truth for name, price and Stripe price variable).
+export const PRODUCTS=productData.products.filter(p=>p.priceEnv).map(p=>({id:p.id,name:p.name,subtitle:p.tagline,description:p.description,image:p.image,...(p.price!=null?{amount:p.price,currency:'USD'}:{}),priceEnv:p.priceEnv}));
 const MIME={'image/jpeg':'jpg','image/png':'png','image/webp':'webp','video/mp4':'mp4','video/webm':'webm'};
 export function json(data,status=200){return new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}})}
 function fail(message,status=400){const e=new Error(message);e.status=status;throw e}
