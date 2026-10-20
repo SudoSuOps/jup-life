@@ -81,4 +81,3 @@ document.addEventListener('jup-order-paid',()=>{cart=[];persist()});
 if($('#year'))$('#year').textContent=new Date().getFullYear();
 
 import('/contact.js').catch(error=>console.error('Contact form failed to load',error));
-import('/ecosystem-link.js').catch(error=>console.error('Ecosystem navigation failed to load',error));

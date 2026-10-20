@@ -44,7 +44,6 @@ Production uses the existing BullPrint Lab account (`acct_1Sj8NnHYwaTbul7M`) und
 | `STRIPE_PRICE_SIGNATURE` | `price_…` for the $49 USD sunflower pot set |
 | `STRIPE_PRICE_SWEET_COAST` | `price_…` for the $59 USD coastal jar set |
 | `STRIPE_PRICE_HIBISCUS` | `price_…` for the $29 USD hibiscus set |
-| `STRIPE_PRICE_PROOF_OF_COIN` | `price_…` for the $39 USD Bitcoin set |
 | `STRIPE_PRICE_COASTERS` | `price_…` for six coasters |
 | `STRIPE_PRICE_HOLDER` | `price_…` for the holder |
 | `STRIPE_PRICE_STUDIO_SET` | `price_…` for six coasters + holder |
@@ -81,18 +80,12 @@ Customer and shipping details live in Stripe. Fulfill the order using Stripe’s
 
 Back up D1 and retain R2 originals according to the final privacy policy. Review Cloudflare and Stripe service usage in their dashboards. Keep secrets out of GitHub. The app’s R2 bucket remains private; its `/media/:id` function controls draft access. Unpublishing removes a media item from the feed immediately, but an already public cached media response may remain accessible for up to one hour.
 
-## Proof of Coin OG six-pack
-
-The public set price is $39 USD. Email ordering is available on `/collection/proof-of-coin`. For a future Stripe checkout, configure `STRIPE_PRICE_PROOF_OF_COIN` to a one-time USD 3900-cent price in the same mode as the other IDs. The server rejects a different price. Existing readiness and policy flags remain in effect. The page includes the authorized Lucky inspiration story; product images remain labeled as design previews.
-
-The private studio now lists configuration checks and price bindings for every catalog piece. Configured means a value exists; a sandbox purchase still verifies it. Fixed advertised prices are checked against Stripe before checkout.
 
 ## Approved production catalog
 
 | Cloudflare variable | Live BullPrint Lab price | USD |
 | --- | --- | --- |
 | `STRIPE_PRICE_HIBISCUS` | `price_1UNEc8HYwaTbul7M82ObSGjw` | $29 |
-| `STRIPE_PRICE_PROOF_OF_COIN` | `price_1UNEcEHYwaTbul7MjLKSUHAa` | $39 |
 | `STRIPE_PRICE_SIGNATURE` | `price_1UNEcPHYwaTbul7MgAc0qK6k` | $49 |
 | `STRIPE_PRICE_SWEET_COAST` | `price_1UNEcVHYwaTbul7MfDEZUDln` | $59 |
 

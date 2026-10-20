@@ -8,7 +8,7 @@ const amounts=new Set(products.filter(p=>p.price!=null).map(p=>'$'+(p.price/100)
 async function walk(dir){return(await Promise.all((await readdir(dir,{withFileTypes:true})).map(d=>d.isDirectory()?walk(path.join(dir,d.name)):path.join(dir,d.name)))).flat()}
 const files=(await walk('public')).filter(f=>!f.includes('/admin/'));
 
-const banned=[/petg/i,/lucky shuck/i,/luckyshuck/i,/\bAI[- ]concept/i,/studio concept/i,/development archive/i,/physical testing/i,/planned \$/i,/\[email.protected\]/i];
+const banned=[/petg/i,/proof of coin/i,/bitcoin/i,/openfootlab/i,/juplifeos/i,/lucky shuck/i,/luckyshuck/i,/\bAI[- ]concept/i,/studio concept/i,/development archive/i,/physical testing/i,/planned \$/i,/\[email.protected\]/i];
 for(const file of files.filter(f=>/\.(html|js|json|txt|xml)$/.test(f))){
   const text=await readFile(file,'utf8');
   for(const re of banned)assert(!re.test(text),`${file}: contains banned wording ${re}`);

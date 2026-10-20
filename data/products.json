@@ -21,25 +21,6 @@
       "home": true
     },
     {
-      "id": "proof-of-coin",
-      "name": "Proof of Coin",
-      "tagline": "The 256 Collection / OG six-pack",
-      "kicker": "THE 256 COLLECTION / PROOF OF COIN",
-      "description": "Six washable TPU 95A Bitcoin block coasters and one vault holder. Inspired by Lucky, who has mined Bitcoin with his dad since he was 11.",
-      "unit": "for the set",
-      "price": 3900,
-      "status": "buyable",
-      "priceEnv": "STRIPE_PRICE_PROOF_OF_COIN",
-      "page": "/collection/proof-of-coin",
-      "image": "/assets/proof-of-coin-og.webp",
-      "imageSmall": "/assets/proof-of-coin-og-small.webp",
-      "imageWidth": 1599,
-      "imageHeight": 984,
-      "imageAlt": "Orange and charcoal Bitcoin block coasters in a vault holder",
-      "imageKind": "render",
-      "home": true
-    },
-    {
       "id": "hibiscus",
       "name": "The Hibiscus Set",
       "tagline": "Six blooms + one case",
