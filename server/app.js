@@ -21,7 +21,7 @@ function tokenFrom(request){return (request.headers.get('Cookie')||'').split(';'
 async function authenticated(request,env){return verifySession(tokenFrom(request),env.SESSION_SECRET)}
 async function requireAdmin(request,env){if(!await authenticated(request,env))fail('Sign in to the studio.',401)}
 async function equalSecret(a,b){const hash=async x=>new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(x)));const [ha,hb]=await Promise.all([hash(a),hash(b)]);let d=0;for(let i=0;i<ha.length;i++)d|=ha[i]^hb[i];return d===0}
-async function limit(request,env,kind,max,period=600){
+export async function limit(request,env,kind,max,period=600){
  requireDb(env);const ip=request.headers.get('CF-Connecting-IP')||'local';const now=Math.floor(Date.now()/1000);const bucket=Math.floor(now/period);const digest=b64(await hmac(env.SESSION_SECRET||'rate-limit',kind+':'+ip+':'+bucket));
  await env.DB.prepare('INSERT INTO rate_limits(key,count,expires_at) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1').bind(digest,now+period).run();
  const row=await env.DB.prepare('SELECT count FROM rate_limits WHERE key=?').bind(digest).first();if(row.count>max)fail('Please wait a few minutes before trying again.',429);

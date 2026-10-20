@@ -159,7 +159,12 @@
       "price": null,
       "status": "coming-soon",
       "page": "/collection/jup-100",
-      "home": true
+      "home": true,
+      "image": "/assets/mark.svg",
+      "imageWidth": 330,
+      "imageHeight": 130,
+      "imageAlt": "Two chairs facing one wave",
+      "imageKind": "photo"
     },
     {
       "id": "jup-bloom",
@@ -192,7 +197,7 @@
       "imageHeight": 1024,
       "imageAlt": "Coastal wedding table with a floral jar centerpiece, coasters and ribbon-wrapped favors",
       "imageKind": "render",
-      "home": true
+      "home": false
     }
   ]
 }

@@ -5,10 +5,10 @@
   document.head.append(css);
 
   const footer=document.querySelector('footer');
-  if(!footer||document.querySelector('#contact'))return;
+  if(!footer||document.querySelector('#jup-contact-form'))return;
 
   const section=document.createElement('section');
-  section.id='contact';
+  section.id='contact-form';
   section.className='contact';
   section.setAttribute('aria-labelledby','contact-title');
   section.innerHTML=`
@@ -26,7 +26,7 @@
           <div class="contact-field"><label for="contact-name">YOUR NAME</label><input id="contact-name" name="name" autocomplete="name" maxlength="120" required placeholder="Your name"></div>
           <div class="contact-field"><label for="contact-email">EMAIL</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></div>
           <div class="contact-field"><label for="contact-phone">PHONE <span aria-hidden="true">/ OPTIONAL</span></label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="60" placeholder="(561) 555-0123"></div>
-          <div class="contact-field"><label for="contact-interest">WHAT ARE YOU THINKING ABOUT?</label><select id="contact-interest" name="interest"><option>General inquiry</option><option>Custom JUP LIFE piece</option><option>Wedding / life event</option><option>Restaurant / hospitality set</option><option>Gift</option><option>Jup Signature by Dee</option></select></div>
+          <div class="contact-field"><label for="contact-interest">WHAT ARE YOU THINKING ABOUT?</label><select id="contact-interest" name="interest"><option>General inquiry</option><option>Custom JUP LIFE piece</option><option>Wedding / life event</option><option>Restaurant / bar coasters</option><option>Gift</option><option>Jup Signature by Dee</option></select></div>
         </div>
         <div class="contact-field"><label for="contact-message">TELL DEE A LITTLE ABOUT IT</label><textarea id="contact-message" name="message" maxlength="4000" required placeholder="Colors, event date, quantity, inspiration — whatever you already know."></textarea></div>
         <div class="contact-actions"><button class="button button-light" type="submit">Send to Dee</button><p class="contact-form-status" role="status" aria-live="polite"></p></div>

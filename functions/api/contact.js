@@ -1,3 +1,4 @@
+import {sendEmail,escapeHtml} from '../../server/email.js';
 const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function json(data,status=200){
@@ -9,29 +10,6 @@ function json(data,status=200){
       'X-Content-Type-Options':'nosniff'
     }
   });
-}
-
-function escapeHtml(value=''){
-  return String(value).replace(/[&<>"']/g,ch=>({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  })[ch]);
-}
-
-async function sendEmail(apiKey,payload){
-  const response=await fetch('https://api.resend.com/emails',{
-    method:'POST',
-    headers:{
-      'Authorization':`Bearer ${apiKey}`,
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify(payload)
-  });
-  if(!response.ok){
-    const detail=await response.text().catch(()=> '');
-    console.error('Resend error',response.status,detail.slice(0,500));
-    throw new Error('Email delivery failed');
-  }
-  return response.json();
 }
 
 export async function onRequestPost({request,env}){
