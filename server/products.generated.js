@@ -4,10 +4,10 @@ export default {
   {
    "id": "one-more-chapter",
    "name": "One More Chapter",
-   "tagline": "A home for your driftwood reader",
+   "tagline": "A cradle, with a bonus reader",
    "kicker": "ONE MORE CHAPTER",
-   "description": "One sand-colored, washable TPU 95A cradle, made to hold a driftwood reader. Reader not included.",
-   "unit": "per cradle",
+   "description": "One sand-colored, washable TPU 95A cradle, with a bonus gold driftwood reader included. A little home between chapters.",
+   "unit": "per cradle, bonus reader included",
    "price": 900,
    "status": "buyable",
    "priceEnv": "STRIPE_PRICE_ONE_MORE_CHAPTER",
@@ -16,7 +16,7 @@ export default {
    "imageSmall": "/assets/one-more-chapter-small.webp",
    "imageWidth": 1448,
    "imageHeight": 1086,
-   "imageAlt": "One More Chapter sand-colored cradle holding a gold driftwood reader",
+   "imageAlt": "One More Chapter sand-colored cradle holding the bonus gold driftwood reader",
    "imageKind": "render",
    "home": true
   },
