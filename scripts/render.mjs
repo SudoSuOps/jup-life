@@ -47,7 +47,7 @@ function nav(home,file,hasApp){
   const cur=(href)=>file==='restaurants.html'&&href==='/restaurants'?' aria-current="page"':'';
   const links=[['Shop',h+'#shop'],['Restaurants','/restaurants'],['Weddings',h+'#weddings'],['About Dee',h+'#about'],['Contact',h+'#contact']];
   const a=links.map(([t,href])=>`<a href="${href}"${cur(href)}>${t}</a>`).join('');
-  return `<header class="site-header"><a class="brand" href="/"><span>JUP LIFE</span><small>by MRS SMASH</small></a><nav class="desktop-nav" aria-label="Main navigation">${a}</nav><div class="header-actions">${hasApp?'<button class="bag-button" data-open-cart>Bag <span data-cart-count>0</span></button>':''}<button class="menu-button" aria-expanded="false" aria-controls="mobile-nav">Menu</button></div></header><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>${a}</nav>`;
+  return `<header class="site-header"><a class="brand" href="/" aria-label="JUP LIFE by Mrs. Smash, home"><img src="/assets/logo-horizontal.svg" alt="JUP LIFE by Mrs. Smash" width="268" height="64"></a><nav class="desktop-nav" aria-label="Main navigation">${a}</nav><div class="header-actions">${hasApp?'<button class="bag-button" data-open-cart>Bag <span data-cart-count>0</span></button>':''}<button class="menu-button" aria-expanded="false" aria-controls="mobile-nav">Menu</button></div></header><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>${a}</nav>`;
 }
 const sticky=(home)=>`<div class="sticky-cta" role="complementary" aria-label="Quick links"><a class="button button-dark" href="${home?'':'/'}#shop">Shop</a><a class="button button-light" href="/restaurants#sample-request">Free Samples</a></div>`;
 

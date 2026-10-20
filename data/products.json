@@ -141,9 +141,9 @@
       "status": "coming-soon",
       "page": "/collection/jup-100",
       "home": true,
-      "image": "/assets/mark.svg",
-      "imageWidth": 330,
-      "imageHeight": 130,
+      "image": "/assets/mark-brand.svg",
+      "imageWidth": 222,
+      "imageHeight": 128,
       "imageAlt": "Two chairs facing one wave",
       "imageKind": "photo"
     },
