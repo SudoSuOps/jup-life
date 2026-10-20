@@ -8,7 +8,7 @@ const amounts=new Set(products.filter(p=>p.price!=null).map(p=>'$'+(p.price/100)
 async function walk(dir){return(await Promise.all((await readdir(dir,{withFileTypes:true})).map(d=>d.isDirectory()?walk(path.join(dir,d.name)):path.join(dir,d.name)))).flat()}
 const files=(await walk('public')).filter(f=>!f.includes('/admin/'));
 
-const banned=[/petg/i,/proof of coin/i,/bitcoin/i,/openfootlab/i,/juplifeos/i,/lucky shuck/i,/luckyshuck/i,/\bAI[- ]concept/i,/studio concept/i,/development archive/i,/physical testing/i,/planned \$/i,/\[email.protected\]/i];
+const banned=[/petg/i,/proof of coin/i,/proof of read/i,/away from (direct )?heat/i,/bitcoin/i,/openfootlab/i,/juplifeos/i,/lucky shuck/i,/luckyshuck/i,/\bAI[- ]concept/i,/studio concept/i,/development archive/i,/physical testing/i,/planned \$/i,/\[email.protected\]/i];
 for(const file of files.filter(f=>/\.(html|js|json|txt|xml)$/.test(f))){
   const text=await readFile(file,'utf8');
   for(const re of banned)assert(!re.test(text),`${file}: contains banned wording ${re}`);
@@ -24,5 +24,12 @@ for(const file of files.filter(f=>f.endsWith('.html'))){
   for(const [,href] of html.matchAll(/href="mailto:([^"?]*)/g))assert.equal(href,'dee@juplifestudio.com',`${file}: unexpected mailto ${href}`);
   if(html.includes('dee@juplifestudio.com'))assert(html.includes('<!--email_off-->'),`${file}: Cloudflare would obfuscate the email address`);
   if(html.includes('tel:'))assert(html.includes('href="tel:+15615327120"'),`${file}: phone link`);
+}
+// Every #fragment link must land on a real id (home-page anchors are what the nav and footers use).
+const ids=new Set([...(await readFile('public/index.html','utf8')).matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
+for(const file of files.filter(f=>f.endsWith('.html'))){
+  const html=await readFile(file,'utf8');
+  const own=new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
+  for(const [,page,frag] of html.matchAll(/href="(\/?)#([\w-]+)"/g))assert((page==='/'?ids:own).has(frag),`${file}: link to missing anchor #${frag}`);
 }
 console.log('Content verified: prices match data/products.json, no development wording, images have alt text and dimensions, email and phone links intact.');

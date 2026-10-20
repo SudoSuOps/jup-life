@@ -4,11 +4,11 @@
     {
       "id": "one-more-chapter",
       "name": "One More Chapter",
-      "tagline": "A home for your Proof of Read",
-      "kicker": "PROOF OF READ / ONE MORE CHAPTER",
-      "description": "One sand-colored TPU 95A display cradle for your driftwood reader. Reader sold separately.",
-      "unit": "per cradle",
-      "price": 900,
+      "tagline": "A reader and its little home",
+      "kicker": "ONE MORE CHAPTER",
+      "description": "A gold driftwood reader and its sand-colored, washable TPU 95A cradle, together. A little home between chapters.",
+      "unit": "reader + cradle",
+      "price": 1900,
       "status": "buyable",
       "priceEnv": "STRIPE_PRICE_ONE_MORE_CHAPTER",
       "page": "/collection/one-more-chapter",
@@ -16,7 +16,7 @@
       "imageSmall": "/assets/one-more-chapter-small.webp",
       "imageWidth": 1448,
       "imageHeight": 1086,
-      "imageAlt": "One More Chapter sand-colored cradle with gold driftwood reader",
+      "imageAlt": "One More Chapter gold driftwood reader seated in a sand-colored cradle",
       "imageKind": "render",
       "home": true
     },
@@ -161,6 +161,22 @@
       "imageHeight": 910,
       "imageAlt": "Jup Bloom floral coaster inspiration",
       "imageKind": "render",
+      "home": true
+    },
+    {
+      "id": "tide-dish",
+      "name": "The Tide Dish",
+      "tagline": "A soap dish with swappable tops",
+      "kicker": "A NEW STUDIO PIECE",
+      "description": "A soap dish with swappable Tide Tops, so you can change its look whenever you like.",
+      "price": null,
+      "status": "coming-soon",
+      "page": "/collection/tide-dish",
+      "image": "/assets/mark.svg",
+      "imageWidth": 330,
+      "imageHeight": 130,
+      "imageAlt": "Two chairs facing one wave",
+      "imageKind": "photo",
       "home": true
     },
     {
