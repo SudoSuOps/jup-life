@@ -39,7 +39,7 @@ const grids={
 };
 const notes={
   shop:()=>products.some(p=>p.home&&p.status==='buyable'&&p.imageKind==='render')?RENDER_NOTE:'',
-  soon:()=>''
+  soon:()=>products.some(p=>p.home&&p.status==='coming-soon'&&p.imageKind==='render')?RENDER_NOTE:''
 };
 
 function nav(home,file,hasApp){

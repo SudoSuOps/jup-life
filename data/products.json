@@ -172,12 +172,13 @@
       "price": null,
       "status": "coming-soon",
       "page": "/collection/tide-dish",
-      "image": "/assets/mark.svg",
-      "imageWidth": 330,
-      "imageHeight": 130,
-      "imageAlt": "Two chairs facing one wave",
-      "imageKind": "photo",
-      "home": true
+      "image": "/assets/tide-dish-hero.webp",
+      "imageWidth": 1200,
+      "imageHeight": 1200,
+      "imageAlt": "The Tide Dish soap dish in seaglass with a wreath Tide Top standing in the tray",
+      "imageKind": "render",
+      "home": true,
+      "imageSmall": "/assets/tide-dish-hero-small.webp"
     },
     {
       "id": "weddings",
