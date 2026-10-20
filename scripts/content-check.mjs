@@ -23,7 +23,7 @@ for(const file of files.filter(f=>f.endsWith('.html'))){
   }
   for(const [,href] of html.matchAll(/href="mailto:([^"?]*)/g))assert.equal(href,'dee@juplifestudio.com',`${file}: unexpected mailto ${href}`);
   if(html.includes('dee@juplifestudio.com'))assert(html.includes('<!--email_off-->'),`${file}: Cloudflare would obfuscate the email address`);
-  if(html.includes('tel:'))assert(html.includes('href="tel:+15615327120"'),`${file}: phone link`);
+  if(html.includes('tel:'))assert(html.includes('href="tel:+15615818015"'),`${file}: phone link`);
 }
 // Every #fragment link must land on a real id (home-page anchors are what the nav and footers use).
 const ids=new Set([...(await readFile('public/index.html','utf8')).matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
