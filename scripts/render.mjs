@@ -30,7 +30,7 @@ function card(p){
   const action=buyable
     ?`<a class="text-link" data-product-action="${p.id}" href="${p.page}">View ${esc(p.name)}</a>`
     :`<a class="text-link" href="${p.page}">${p.id==='weddings'?'Ask Dee about weddings':'Take a peek'}</a>`;
-  return `<article class="product-card${buyable?'':' is-soon'}" data-id="${p.id}"><a class="product-image" href="${p.page}" aria-label="${esc(p.name)}">${img}${buyable?'':'<span class="image-label">Coming soon</span>'}</a><div class="product-meta"><span>${esc(p.kicker)}</span><span>${buyable?money(p):'Coming soon'}</span></div><h3><a href="${p.page}">${esc(p.name)}</a></h3><p>${esc(p.description)}</p>${action}</article>`;
+  return `<article class="product-card${buyable?'':' is-soon'}" data-id="${p.id}"><a class="product-image" href="${p.page}" tabindex="-1" aria-hidden="true">${img}${buyable?'':'<span class="image-label">Coming soon</span>'}</a><div class="product-meta"><span>${esc(p.kicker)}</span><span>${buyable?money(p):'Coming soon'}</span></div><h3><a href="${p.page}">${esc(p.name)}</a></h3><p>${esc(p.description)}</p>${action}</article>`;
 }
 
 const grids={
@@ -47,7 +47,7 @@ function nav(home,file,hasApp){
   const cur=(href)=>file==='restaurants.html'&&href==='/restaurants'?' aria-current="page"':'';
   const links=[['Shop',h+'#shop'],['Restaurants','/restaurants'],['Weddings',h+'#weddings'],['About Dee',h+'#about'],['Contact',h+'#contact']];
   const a=links.map(([t,href])=>`<a href="${href}"${cur(href)}>${t}</a>`).join('');
-  return `<header class="site-header"><a class="brand" href="/" aria-label="JUP LIFE by Mrs. Smash home"><span>JUP LIFE</span><small>by MRS SMASH</small></a><nav class="desktop-nav" aria-label="Main navigation">${a}</nav><div class="header-actions">${hasApp?'<button class="bag-button" data-open-cart aria-label="Open your bag">Bag <span data-cart-count>0</span></button>':''}<button class="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">Menu</button></div></header><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>${a}</nav>`;
+  return `<header class="site-header"><a class="brand" href="/" aria-label="JUP LIFE by MRS SMASH, home"><span>JUP LIFE</span><small>by MRS SMASH</small></a><nav class="desktop-nav" aria-label="Main navigation">${a}</nav><div class="header-actions">${hasApp?'<button class="bag-button" data-open-cart>Bag <span data-cart-count>0</span></button>':''}<button class="menu-button" aria-expanded="false" aria-controls="mobile-nav">Menu</button></div></header><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>${a}</nav>`;
 }
 const sticky=(home)=>`<div class="sticky-cta" role="complementary" aria-label="Quick links"><a class="button button-dark" href="${home?'':'/'}#shop">Shop</a><a class="button button-light" href="/restaurants#sample-request">Free Samples</a></div>`;
 
@@ -76,6 +76,34 @@ await put('public/products.json',JSON.stringify({products:pub},null,1)+'\n');
 const hashOf={};
 for(const f of files.filter(f=>/\.(css|js)$/.test(f)&&!f.includes('/admin/')))hashOf['/'+f.replace(/^public\//,'')]=createHash('sha256').update(await readFile(f)).digest('hex').slice(0,8);
 
+const assetHash={};
+for(const f of files.filter(f=>f.startsWith('public/assets/')&&!f.endsWith('.otf')))assetHash['/'+f.replace(/^public\//,'')]=createHash('sha256').update(await readFile(f)).digest('hex').slice(0,8);
+const hasAsset=p=>p in assetHash;
+
+// AVIF first (smaller), WebP as the fallback. Sources are rebuilt on every run so this stays idempotent.
+function avifify(html){
+  html=html.replace(/<source[^>]*type="image\/avif"[^>]*>/g,'');
+  return html.replace(/<picture>[\s\S]*?<\/picture>|<img\b[^>]*>/g,tag=>{
+    const img=tag.match(/<img\b[^>]*\bsrc="(\/assets\/([\w-]+)\.webp)(?:\?v=\w+)?"[^>]*>/);
+    if(!img)return tag;
+    const base=img[2],full='/assets/'+base+'.avif',small='/assets/'+base+'-small.avif';
+    if(!hasAsset(full))return tag;
+    const inPicture=tag.startsWith('<picture>');
+    const srcset=img[0].match(/\bsrcset="[^"]*"/),sizes=img[0].match(/\bsizes="[^"]*"/),width=img[0].match(/\bwidth="(\d+)"/)?.[1];
+    const mobile=hasAsset(small)?`<source media="(max-width:700px)" srcset="${small}" type="image/avif">`:'';
+    // Responsive <img srcset>: one AVIF source with the same candidates.
+    if(srcset&&hasAsset(small)){
+      const source=`<source srcset="${small} 800w, ${full} ${width}w" ${sizes?sizes[0]+' ':''}type="image/avif">`;
+      return inPicture?tag.replace('<picture>','<picture>'+source):`<picture>${source}${tag}</picture>`;
+    }
+    if(inPicture)return tag.replace('<picture>','<picture>'+mobile).replace(/(<img\b)/,`<source srcset="${full}" type="image/avif">$1`);
+    const webpSmall=hasAsset('/assets/'+base+'-small.webp')?`<source media="(max-width:700px)" srcset="/assets/${base}-small.webp">`:'';
+    return `<picture>${mobile}${webpSmall}<source srcset="${full}" type="image/avif">${tag}</picture>`;
+  });
+}
+// Version asset URLs by content so a long browser cache can never serve a replaced photo.
+const version=html=>html.replace(/(?<![\w.:\/-])(\/assets\/[\w.-]+\.(?:webp|avif|svg|png|jpg|mp4))(?:\?v=[0-9a-f]{8})?/g,(m,p)=>assetHash[p]?`${p}?v=${assetHash[p]}`:m);
+
 const inlineScripts=new Set();
 for(const file of files.filter(f=>f.endsWith('.html'))){
   const rel=file.replace(/^public\//,'');
@@ -98,7 +126,7 @@ for(const file of files.filter(f=>f.endsWith('.html'))){
   if(!rel.startsWith('success')){
     html=html.replace(/<header class="site-header">[\s\S]*?<\/header>(\s*<nav id="mobile-nav"[\s\S]*?<\/nav>)?/,nav(home,rel,hasApp));
     html=html.replace(/<div class="sticky-cta"[\s\S]*?<\/div>/,'');
-    html=html.replace(/<\/body>/,sticky(home)+'</body>');
+    if(rel!=='restaurants.html')html=html.replace(/<\/body>/,sticky(home)+'</body>');
     if(!/\/site\.js/.test(html))html=html.replace('</head>','<script src="/site.js" defer></script></head>');
   }
 
@@ -106,6 +134,7 @@ for(const file of files.filter(f=>f.endsWith('.html'))){
   html=html.replace(/<!--\/?email_off-->/g,'');
   html=html.replace(/(<html[^>]*>)/,'$1<!--email_off-->').replace(/<\/html>/,'<!--/email_off--></html>');
 
+  html=version(avifify(html));
   html=html.replace(/(href|src)="(\/[\w.-]+\.(?:css|js))(?:\?v=[\w-]+)?"/g,(m,a,p)=>hashOf[p]?`${a}="${p}?v=${hashOf[p]}"`:m);
   html=html.replace(/import\('(\/[\w.-]+\.js)(?:\?v=[\w-]+)?'\)/g,(m,p)=>hashOf[p]?`import('${p}?v=${hashOf[p]}')`:m);
 

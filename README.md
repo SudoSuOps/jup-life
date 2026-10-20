@@ -25,6 +25,20 @@ Production deploys are triggered automatically by pushes to `main`.
 
 Follow [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for D1, R2, admin credentials, Stripe, and the launch check. Do not turn on checkout until real products, approved policies and tested payments are ready.
 
+## Editing products and pages
+
+- **`data/products.json`** is the one place for each product's name, price (in cents), description, status (`buyable` or `coming-soon`), image and the Cloudflare variable that holds its Stripe price ID. The server, the shop grids, the FAQ, the product pages' structured data and the checks all read from it.
+- After editing it, run **`npm run render`**. That rewrites every price/name mention, the card grids, the shared header and sticky buttons, Product JSON-LD, the CSP script hashes, asset and CSS/JS version strings and the AVIF `<picture>` sources. `npm run check` fails if anything is out of date, if a price in the HTML is not in the data file, or if banned wording (PETG, Lucky Shuck, "AI concept"…) comes back.
+- To add real product photos: put the WebP in `public/assets/`, run `npm i --no-save sharp && node scripts/optimize-images.mjs` for AVIF and small variants, point the product's `image` fields at it, set `imageKind` to `photo`, then `npm run render`. The “studio rendering” note disappears when no product in the grid is a rendering.
+
+## Restaurants & bars
+
+`/restaurants` has a free sample-pack request form. It posts to `functions/api/restaurant-request.js`, which emails Dee through the existing Resend setup (`RESEND_API_KEY`, optional `CONTACT_TO` and `CONTACT_FROM`), attaches the logo (PNG, JPG, SVG, WebP or PDF, up to 4 MB) and sends the requester a thank-you. No storage bucket is needed.
+
+## Cloudflare Web Analytics
+
+The CSP allows Cloudflare's analytics beacon (`static.cloudflareinsights.com`, reporting to `cloudflareinsights.com`). To turn analytics off, disable it in the Cloudflare dashboard and remove those two hosts in `scripts/render.mjs`.
+
 ## What’s included
 
 - Responsive storefront, three product pages, saved bag, founder story, contact links, social metadata and local fonts.
@@ -35,7 +49,7 @@ Follow [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for D1, R2, admin credentials, S
 
 ## Launch state
 
-**Collection preview** is the default. There are no invented selling prices. Product imagery is clearly labeled AI-created studio concepts; it is not manufacturing evidence. Final photos, dimensions, colors, care details, stock/production arrangements, shipping timing, returns and retention periods need Dee’s real business decisions before taking payments. A donation program or charity percentage is not claimed.
+**Collection preview** is the default. There are no invented selling prices. Product imagery is labeled as studio renderings until real photos replace it. Final photos, dimensions, colors, care details, stock/production arrangements, shipping timing, returns and retention periods need Dee’s real business decisions before taking payments. A donation program or charity percentage is not claimed.
 
 This is a small studio catalog, not an inventory management system. There is no automated stock reservation, refund interface, carrier integration or customer email sender. Use Stripe for customer/shipping details, receipts and refunds. Admin “fulfilled” records an internal state; it does not send tracking. Uploaded media limits: images 20 MB; videos 75 MB. Original videos are served without transcoding.
 

@@ -62,3 +62,12 @@ test('applies the rate limit when a database is present',async()=>{
   const res=await handleRestaurantRequest({request:new Request(origin+'/x',{method:'POST',headers:{Origin:origin},body:formWith()}),env:{...env,DB:{}}},{limit:async()=>{const e=new Error('Please wait a few minutes before trying again.');e.status=429;throw e}});
   assert.equal(res.status,429);
 });
+
+test('a broken rate-limit table does not lose the request',()=>withMail(async sent=>{
+  const err=console.error;console.error=()=>{};
+  try{
+    const res=await handleRestaurantRequest({request:new Request(origin+'/x',{method:'POST',headers:{Origin:origin},body:formWith()}),env:{...env,DB:{}}},{limit:async()=>{throw new Error('D1_ERROR: no such table: rate_limits')}});
+    assert.equal(res.status,200);
+    assert.equal(sent.length,2);
+  }finally{console.error=err}
+}));

@@ -15,7 +15,8 @@ export async function handleRestaurantRequest({request,env},{limit}={}){
     if(origin!==new URL(request.url).origin)return reply({error:'Request origin not allowed.'},403);
     if(!env.RESEND_API_KEY)return reply({error:'Requests are not set up yet. Please email dee@juplifestudio.com.'},503);
     if(Number(request.headers.get('Content-Length')||0)>MAX_LOGO_BYTES+200000)return reply({error:'That file is too large. Logos can be up to 4 MB.'},413);
-    if(limit&&env.DB)await limit(request,env,'restaurant',5,3600);
+    // Throttle repeat submissions, but never lose a lead because the rate-limit table is unavailable.
+    if(limit&&env.DB){try{await limit(request,env,'restaurant',5,3600)}catch(error){if(error?.status===429)throw error;console.error('Rate limit unavailable',error)}}
 
     let form;
     try{form=await request.formData()}catch{return reply({error:'Invalid request.'},400)}
