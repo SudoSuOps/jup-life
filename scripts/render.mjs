@@ -145,11 +145,10 @@ for(const file of files.filter(f=>f.endsWith('.html'))){
   await put(file,html);
 }
 
-// Content-Security-Policy: pin each inline script (JSON-LD) by hash. The
-// Cloudflare Web Analytics beacon is allowed from its own host only.
+// Content-Security-Policy: pin each inline script (JSON-LD) by hash. No third-party hosts are allowed.
 let headers=await readFile('public/_headers','utf8');
-const scriptSrc="script-src 'self' https://static.cloudflareinsights.com "+[...inlineScripts].sort().map(h=>`'sha256-${h}'`).join(' ');
-headers=headers.replace(/script-src [^;]*/,scriptSrc).replace(/connect-src [^;]*/,"connect-src 'self' https://cloudflareinsights.com");
+const scriptSrc="script-src 'self' "+[...inlineScripts].sort().map(h=>`'sha256-${h}'`).join(' ');
+headers=headers.replace(/script-src [^;]*/,scriptSrc).replace(/connect-src [^;]*/,"connect-src 'self'");
 await put('public/_headers',headers);
 
 if(stale.length){console.error('Out of date, run `npm run render`:\n'+stale.join('\n'));process.exit(1)}

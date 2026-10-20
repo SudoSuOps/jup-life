@@ -35,9 +35,9 @@ Follow [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for D1, R2, admin credentials, S
 
 `/restaurants` has a free sample-pack request form. It posts to `functions/api/restaurant-request.js`, which emails Dee through the existing Resend setup (`RESEND_API_KEY`, optional `CONTACT_TO` and `CONTACT_FROM`), attaches the logo (PNG, JPG, SVG, WebP or PDF, up to 4 MB) and sends the requester a thank-you. No storage bucket is needed.
 
-## Cloudflare Web Analytics
+## Analytics
 
-The CSP allows Cloudflare's analytics beacon (`static.cloudflareinsights.com`, reporting to `cloudflareinsights.com`). To turn analytics off, disable it in the Cloudflare dashboard and remove those two hosts in `scripts/render.mjs`.
+The site uses no analytics. Cloudflare Pages' Web Analytics is switched off in the dashboard (Workers & Pages → jup-life → Metrics), and the CSP allows no third-party hosts. If you turn it back on, allow `static.cloudflareinsights.com` in script-src and `cloudflareinsights.com` in connect-src in `scripts/render.mjs`, and update the privacy page. Measured on the live site, the beacon cost about 10–15 Lighthouse Performance points on slow mobile.
 
 ## What’s included
 
