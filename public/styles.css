@@ -103,3 +103,8 @@ html{scroll-behavior:smooth}
 .brand img{display:block;height:64px;width:auto}@media(max-width:700px){.brand img{height:46px}}
 
 .eyebrow{color:#0b6b70;font-weight:600}.contact .eyebrow,footer .eyebrow,.point-of-view .eyebrow,.hero-foot .eyebrow{color:inherit}.button,.eyebrow,.product-meta{font-weight:600}
+.shorts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.shorts-grid figure{margin:0}
+.shorts-grid video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;background:#211b1d;border-radius:2px}
+.shorts-grid figcaption{margin-top:10px;font-size:.95rem}
+@media(max-width:950px){.shorts-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
